@@ -53,7 +53,61 @@ class TodaysWeather extends StatelessWidget {
                   ],
                 ),
               ),
+              Row(
+                children: [
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Colors.white10,
+                    ),
+                    child: Image.network(
+                      "https:${weatherModel?.current?.condition?.icon ?? ""}",
+                    ),
+                  ),
+                  Spacer(),
+                  Column(
+                    children: [
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(top: 2.0),
+                            child: Text(
+                              weatherModel?.current?.tempC?.round().toString()??"",style: TextStyle(
+                              fontSize: 80,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.pink
+                            ),
+                            ),
+                          ),
+                          Text(
+                            "o",style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.pink,
+                          ),
+                          ),
 
+                        ],
+                      ),
+                      Text(
+                        weatherModel?.current?.condition?.text ??"",style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 15,
+                          color: Colors.white
+                      ),
+                      )
+                    ],
+                  ),
+                  SizedBox(
+                    width: 10,
+                  )
+                ],
+              ),
             ],
           ),
         ),
